@@ -126,6 +126,15 @@
                   <a id="btndaftar" onclick="daftar()" class="btn btn-sm btn-success"><i class="fas fa-sign-in-alt"></i> Daftar</a>
                 </div>
               </form>
+
+              <form id="verif" style="display: none">
+                <hr>
+                <div class="form-group">
+                  <label id="lblotp">Masukkan OTP anda</label>
+                  <input type="hidden" required name="token"  id="token">
+                  <input type="text" required name="otp" onkeyup="verif()" class="form-control" id="otp" maxlength="5">
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -301,18 +310,59 @@ function daftar(){
     data    : fd,
     success : function(data){
       m=JSON.parse(data);
+      //console.log(data);
       if(m.kode==1)
       {
         toastr.success(m.konten);
-        window.location.href='verif?'+m.token;
+        $('#btndaftar').html('<i class="fas fa-sign-in-alt"></i> Daftar');
+        $('#verif').show();
+        $('#token').val(m.token);
+        $('#otp').focus();
       }
       else
       {
         toastr.error(m.konten);
       }
+      $('#btndaftar').html('<i class="fas fa-sign-in-alt"></i> Daftar');
     }
   })
-  $('#btndaftar').html('<i class="fas fa-sign-in-alt"></i> Daftar');
+  
+}
+
+function verif(){
+  otp=$('#otp').val();
+  console.log(otp.length);
+  $('#lblotp').html('Masukkan OTP anda   <i class="fas fa-spinner fa-spin"></i>');
+  if(otp.length==5)
+  {
+    verif=$('#verif').serialize();
+    $.ajax({
+      url   : 'app/jamaah/fx?otp',
+      method: 'POST',
+      data  : verif,
+      success : function(data){
+        m=JSON.parse(data);
+        console.log(data);
+        if(m.kode==1)
+        {
+          toastr.success(m.konten);
+          $('.nav-tabs a[href="#masuk"]').tab('show');
+          $('#lblotp').html('Masukkan OTP anda   <i class="text-success fas fa-check-circle"></i>');
+        }
+        else
+        {
+          toastr.error(m.konten);
+          $('#lblotp').html('Masukkan OTP anda   <i class="text-danger fas fa-times-circle"></i>');
+        }
+      } 
+    })
+  }
+  else
+  {
+    $('#lblotp').html('Masukkan OTP anda   <i class="fas fa-spinner fa-spin"></i> 5 digit');
+  }
+  
+
 }
 </script>
 <style type="text/css">

@@ -15,6 +15,7 @@ if(isset($_GET['daftar']))
 	{
 		$kode=2;
 		$psn="No. HP atau E-mail sudah pernah terdaftar sebelumnya. Silahkan langsung login";
+		$token="";
 	}
 	else
 	{
@@ -58,16 +59,41 @@ if(isset($_GET['daftar']))
 
 		        // Close the cURL handler
 		        curl_close($ch);
-		    $psn="";
+		    $psn="Pendaftaran berhasil. Kami telah mengirimkan kode OTP di Whatsapp anda. Gunakan kode tersebut untuk verifikasi pendaftaran.";
 		    $kode=1;
+
 		}
 		else
 		{
 			$kode=0;
 			$psn="Pendaftaran gagal. Mohon cek kembali. ".mysqli_error($kon);
+			$token="";
 		}
 	}
 
+
+	$msg=array(
+		'kode'=>$kode,
+		'konten'=>$psn,
+		'token'=>$token,
+		);
+	echo json_encode($msg);
+}
+elseif(isset($_GET['otp']))
+{
+	$otp 	=addslashes($_POST['otp']);
+	$token 	=addslashes($_POST['token']);
+	$cek=mysqli_num_rows(mysqli_query($kon,"SELECT * from jamaah where token='$token' and otp='$otp'"));
+	if($cek==1)
+	{
+		$kode=1;
+		$psn="Verifikasi berhasil";
+	}		
+	else
+	{
+		$kode=0;
+		$psn="OTP tidak sesuai";
+	}
 
 	$msg=array(
 		'kode'=>$kode,
