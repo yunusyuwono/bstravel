@@ -293,24 +293,26 @@
 </body>
 <script type="text/javascript">
 function daftar(){
+  $('#btndaftar').html('<i class="fas fa-spinner fa-spin"></i>');
   fd=$('#fd').serialize();
   $.ajax({
     url   : 'app/jamaah/fx?daftar',
     method : 'POST',
     data    : fd,
     success : function(data){
-      console.log(data);
       m=JSON.parse(data);
       if(m.kode==1)
       {
+        toastr.success(m.konten);
         window.location.href='verif?'+m.token;
       }
       else
       {
-        toastr.error('Pendaftaran gagal. Mohon cek kembali');
+        toastr.error(m.konten);
       }
     }
   })
+  $('#btndaftar').html('<i class="fas fa-sign-in-alt"></i> Daftar');
 }
 </script>
 <style type="text/css">
