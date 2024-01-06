@@ -399,7 +399,8 @@ p {
 
 /*===== NAVBAR NINE =====*/
 .navbar-area.navbar-nine {
-  background: rgba(255,255,255,0.8);
+  background: rgba(200,200,200,0.1);
+  border-bottom: 2px solid var(--primary-dark);
   padding: 10px 0;
   position: absolute;
   left: 0;
@@ -407,17 +408,18 @@ p {
   width: 100%;
   z-index: 9;
 }
-.sticky {
+./*sticky {
   position: fixed !important;
   z-index:99 !important;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
   top: 0;
   width: 100%;
-}
+}*/
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .navbar-area.navbar-nine {
     padding: 10px 0;
+
   }
 }
 .navbar-area.navbar-nine .navbar-brand {
@@ -426,11 +428,12 @@ p {
 .navbar-area.navbar-nine .navbar {
   position: relative;
   padding: 0;
+
 }
 .navbar-area.navbar-nine .navbar .navbar-toggler .toggler-icon {
   width: 30px;
   height: 2px;
-  background-color: var(--white);
+  background-color: var(--primary-dark);
   margin: 5px 0;
   display: block;
   position: relative;
@@ -465,14 +468,17 @@ p {
     top: 116%;
     left: 0;
     width: 100%;
-    background-color: var(--primary);
+    background-color: #FFD700;
+    border-radius:10px;
+    border:2px inset #FFD700;
+    box-shadow:4px 4px gray;
     z-index: 8;
     padding: 10px 16px;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px), only screen and (min-width: 1400px) {
   .navbar-area.navbar-nine .navbar .navbar-nav {
-    margin-left: 80px;
+    margin-left: 240px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -487,11 +493,12 @@ p {
   display: flex;
   align-items: center;
   padding: 11px 16px;
-  color: var(--white);
+  left:150px;
+  color: var(--primary);
   text-transform: capitalize;
   position: relative;
   border-radius: 5px;
-  font-weight: 500;
+  font-weight: 700;
   -webkit-transition: all 0.3s ease-out 0s;
   -moz-transition: all 0.3s ease-out 0s;
   -ms-transition: all 0.3s ease-out 0s;
@@ -505,7 +512,9 @@ p {
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .navbar-area.navbar-nine .navbar .navbar-nav .nav-item a {
+    color:var(--primary-dark);
     padding: 10px 0;
+    left:10px;
     display: block;
     border: 0;
     margin: 0;
@@ -712,6 +721,7 @@ p {
 }
 .navbar-area.navbar-nine .navbar .navbar-btn {
   margin-top: 6px;
+
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .navbar-area.navbar-nine .navbar .navbar-btn {
@@ -731,7 +741,7 @@ p {
   font-size: 22px;
   position: relative;
   overflow: hidden;
-  color: var(--white);
+  color: var(--primary-dark);
   height: 40px;
   width: 40px;
   line-height: 40px;
@@ -743,6 +753,13 @@ p {
   -ms-transition: all 0.3s ease-out 0s;
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .navbar-area.navbar-nine .navbar .navbar-btn {
+    position: absolute;
+    right: 70px;
+    top: 7px;
+  }
 }
 .navbar-area.navbar-nine .navbar .navbar-btn .menu-bar:hover {
   border-color: transparent;
@@ -910,10 +927,8 @@ p {
 ========================================*/
 .header-eight {
   position: relative;
-  padding:160px 0 100px 0;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN0J8zVs0KCCenqGrfSuSM-TEuEM_AWgJC_A&usqp=CAU');
-  background-repeat:no-repeat;
-  background-size:cover;
+  top:100px;
+  
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header-eight {

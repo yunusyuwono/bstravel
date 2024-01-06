@@ -21,9 +21,7 @@
 
   <!--====== Tiny Slider css ======-->
   <link rel="stylesheet" href="assets/css/tiny-slider.css" />
-
-  <!--====== gLightBox css ======-->
-  <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="style.css" />
@@ -39,9 +37,34 @@
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="index.html">
-              <img src="https://bs-travel.id/wp-content/uploads/2023/12/Logo-BST-Final.png" height="50">
+              <img src="https://bs-travel.id/wp-content/uploads/2023/12/Logo-BST-Final.png" height="70">
             </a>
-            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine" aria-controls="navbarNine" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+              <span class="toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a class="page-scroll active" href="#hero-area">Beranda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="page-scroll" href="#services">Pilihan Paket</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="page-scroll" href="#pricing">Agen Resmi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="page-scroll" href="#contact">Galeri</a>
+                </li>
+                <li class="nav-item">
+                  <a class="page-scroll" data-bs-target="#sign" data-bs-toggle="modal">Masuk|Daftar</a>
+                </li>
+              </ul>
+            </div>
           </nav>
         </div>
       </div>
@@ -50,33 +73,74 @@
     <!-- container -->
   </section>
 
-  
-  <section id="hero-area" class="header-area header-eight">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 col-md-12 col-12">
-          <div class="header-content">
-            <h1>Bahana Sukses Sejahtera Travel</h1>
-            
-            <div class="button">
-              <a href="#contact" class="btn primary-btn page-scroll">Lihat Data</a>
-              <a href="https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM"
-                class="glightbox video-button">
-                <span class="btn icon-btn rounded-full">
-                  <i class="lni lni-play"></i>
-                </span>
-                <span class="text">Watch Intro</span>
-              </a>
+  <div class="modal" id="sign">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body p-1">
+          <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="tab" href="#masuk">Masuk</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#daftar">Daftar</a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane container active" id="masuk">
+              <form id="fm">
+                <div class="form-group mt-2">
+                  <label>Username</label>
+                  <input type="text" required name="username" class="form-control" id="username">
+                </div>
+                <div class="form-group mt-2">
+                  <label>Kata sandi</label>
+                  <input type="password" required name="password" class="form-control" id="password">
+                </div>
+                <div class="form-group mt-4 pb-4" align="center">
+                  <a id="btnmasuk" onclick="masuk()" class="btn btn-sm btn-primary"><i class="fas fa-sign-in-alt"></i> Masuk</a><br>
+                  <a id="btnlupa" onclick="window.location.href='lupasandi'" style="font-size:9pt;text-transform: none;" class="btn btn-link "> Lupa kata sandi ?</a>
+                </div>
+              </form>
+            </div>
+            <div class="tab-pane container fade" id="daftar">
+              <form id="fd">
+                <div class="form-group mt-2">
+                  <label>Nama Lengkap</label>
+                  <input type="text" required name="nama" class="form-control" id="nama">
+                </div>
+                <div class="form-group mt-2">
+                  <label>No. HP/Whatsapp</label>
+                  <input type="text" required name="hp" class="form-control" id="hp">
+                </div>
+                <div class="form-group mt-2">
+                  <label>E-mail</label>
+                  <input type="email" required name="email" class="form-control" id="email">
+                </div>
+                <div class="form-group mt-2">
+                  <label>Buat kata sandi</label>
+                  <input type="password" required name="pw" class="form-control" id="pw">
+                </div>
+                <div class="form-group mt-4 pb-4" align="center">
+                  <a id="btndaftar" onclick="daftar()" class="btn btn-sm btn-success"><i class="fas fa-sign-in-alt"></i> Daftar</a>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <div class="header-image">
-            <img src="assets/images/header/hero-image.jpg" alt="#" />
-          </div>
+        <div class="modal-footer p-0">
+          <div class="text-right">
+              <a data-bs-dismiss="modal" class="btn btn-secondary btn-sm float-right p-1" style="font-size:8pt;"><i class="fas fa-times"></i> Tutup</a>
+            </div>
         </div>
       </div>
     </div>
+  </div>
+  
+  <section id="hero-area">
+    <img src="https://zaharatour.com/wp-content/uploads/2023/10/Umroh-ramadhan-zahara.webp" alt="" width="100%" height="auto" style="margin-top: 100px;">
+    
   </section>
   <!-- End header Area -->
 
@@ -88,16 +152,45 @@
         <div class="col-xl-12 pb-5">
           <div class="contact-item-wrapper">
             <div class="row justify-content-center">
-              <div class="col-4 col-md-6 col-xl-2 pt-1 pb-4 " >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_penduduk()">
+              <div class="col-12 p-3" align="center">
+                <h2>Pilihan Paket</h2>
+              </div>
+              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
+                <div class="card card-body p-0 hvs">
+                  <div style="border-radius:10px; height: 150px; background-image: url(https://zaharatour.com/wp-content/uploads/2023/10/Umroh-ramadhan-zahara.webp); background-size: cover; background-repeat:no-repeat;" onclick="graf_penduduk()"></div>
                   <div class="row">
                     <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Penduduk</div>
+                      <div align="center" style="margin:5px;font-size: 14px;color: darkorange; text-shadow:0px 0px 1px grey; border:1px;border-bottom:1px dashed darkorange">UMROH AKBAR EKONOMIS 3 FEBRUARI 2024 RUTE MED - JED</div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center" style="color:#444">
+                    <div class="col-6" align="center">
+                      Jadwal
+                    </div>
+                    <div class="col-6" align="center">
+                      10 Feb 2024
+                    </div>
+                    <div class="col-6" align="center">
+                      Durasi
+                    </div>
+                    <div class="col-6" align="center">
+                      10 Hari
+                    </div>
+                    <div class="col-6" align="center">
+                      Kuota
+                    </div>
+                    <div class="col-6" align="center">
+                      12 dari 40
+                    </div>
+                  </div>
+                  <div class="row p-1 mt-4">
+                    <div class="col-12">
+                      <a class="btn btn-primary btn-sm w-100" style="border-radius:5px;font-size: 9pt;" onclick="paketdetail('id')">Selengkapnya</a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-4 col-md-6 col-xl-2 pt-1 pb-4" >
+              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4" >
                 <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_kesehatan()">
                   <div class="row">
                     <div class="col-12">
@@ -106,7 +199,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-4 col-md-6 col-xl-2 pt-1 pb-4 " >
+              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
                 <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_sosial()">
                   <div class="row">
                     <div class="col-12">
@@ -115,7 +208,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-4 col-md-6 col-xl-2 pt-1 pb-4 " >
+              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
                 <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_keuangan()">
                   <div class="row">
                     <div class="col-12">
@@ -124,7 +217,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-4 col-md-6 col-xl-2 pt-1 pb-4 " >
+              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
                 <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_pendidikan()">
                   <div class="row">
                     <div class="col-12">
@@ -133,7 +226,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-4 col-md-6 col-xl-2 pt-1 pb-4 " >
+              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
                 <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_industri()">
                   <div class="row">
                     <div class="col-12">
@@ -142,7 +235,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-4 col-md-6 col-xl-2 pt-1 pb-4 " >
+              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
                 <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_dataopd()">
                   <div class="row">
                     <div class="col-12">
@@ -160,7 +253,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-4 col-md-6 col-xl-2 pt-1 pb-4 " >
+              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
                 <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_pengaduan()">
                   <div class="row">
                     <div class="col-12">
@@ -169,7 +262,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-4 col-md-6 col-xl-2 pt-1 pb-4 " >
+              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
                 <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_lapgub()">
                   <div class="row">
                     <div class="col-12">
@@ -184,25 +277,6 @@
       </div>
     </div>
   </section>
-
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-12 pb-5">
-          <div id="konten">Data muncul disini</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--====== ABOUT FIVE PART ENDS ======-->
-
-  <!-- ===== service-area start ===== -->
-  <!-- ========================= map-section end ========================= -->
-
-  <!-- Start Footer Area -->
-  
-  <!--/ End Footer Area -->
 	</div>
 
   <a href="#" class="scroll-top btn-hover">
@@ -212,70 +286,47 @@
   <!--====== js ======-->
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/glightbox.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/tiny-slider.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <script>
-    //========= glightbox
-    GLightbox({
-      'href': 'https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM',
-      'type': 'video',
-      'source': 'youtube', //vimeo, youtube or local
-      'width': 900,
-      'autoplayVideos': true,
-    });
-
-  </script>
-
-  <script>
-    function graf_aplikasi(){
-      $('#konten').html('<img src="https://hackernoon.imgix.net/images/0*4Gzjgh9Y7Gu8KEtZ.gif" width="50%">');
-      $.ajax({
-        url : 'graf.aplikasi.php',
-        success : function (data)
-        {
-          j=JSON.parse(data);
-          a=j['tbl_aplikasiCollection'];
-          b=a['tbl_aplikasi'];
-          konten='';
-          $.each(b,function(key,value){
-            console.log(b[key]['nama']);
-            konten +=b[key]['nama']+' <br>';  
-          })
-          $('#konten').html(konten);
-        }
-      })
-    }
-
-    function graf_pendidikan(){
-      $('#konten').html('<img src="https://hackernoon.imgix.net/images/0*4Gzjgh9Y7Gu8KEtZ.gif" width="50%">');
-      $.ajax({
-        url : 'graf.pendidikan.php',
-        success : function (data)
-        {
-          $('#konten').html(data);
-        }
-      
-      })
-    }
-
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="assets/js/toastr_config.js"></script>
 </body>
+<script type="text/javascript">
+function daftar(){
+  fd=$('#fd').serialize();
+  $.ajax({
+    url   : 'app/jamaah/fx?daftar',
+    method : 'POST',
+    data    : fd,
+    success : function(data){
+      console.log(data);
+      m=JSON.parse(data);
+      if(m.kode==1)
+      {
+        window.location.href='verif?'+m.token;
+      }
+      else
+      {
+        toastr.error('Pendaftaran gagal. Mohon cek kembali');
+      }
+    }
+  })
+}
+</script>
 <style type="text/css">
 .hvs {
   transition: transform .2s;
+  border-radius: 10px;
   border:1px solid gray;
   font-weight: 700;
+  height: 350px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .hvs:hover {
   transform: scale(1.1);
-  font-size: 24px;
   
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: rgba(30,30,30, 0.2);
+  background-color: rgba(200,200,200, 0.1);
 }
 </style>
 </html>

@@ -1,0 +1,1 @@
+<?php $kon=mysqli_connect("localhost","root","","bstravel"); date_default_timezone_set('Asia/Jakarta');?>
