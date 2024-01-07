@@ -101,4 +101,27 @@ elseif(isset($_GET['otp']))
 		);
 	echo json_encode($msg);
 }
+elseif (isset($_GET['masuk'])) {
+	$us=addslashes($_POST['username']);
+	$pw=md5(addslashes($_POST['password']));
+	$cek=mysqli_num_rows(mysqli_query($kon,"SELECT * from jamaah where hp='$us' and password='$pw'"));
+	if($cek!=0)
+	{
+		session_start();
+		$_SESSION['us']=$us;
+		$kode=1;
+		$psn="Login berhasil.";
+	}
+	else
+	{
+		$kode=0;
+		$psn="Login gagal. ".$us.' '.$pw;
+	}
+
+	$msg=array(
+		'kode'=>$kode,
+		'konten'=>$psn.' '.mysqli_error($kon),
+		);
+	echo json_encode($msg);
+}
 ?>

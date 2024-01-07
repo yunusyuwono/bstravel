@@ -132,7 +132,17 @@
                 <div class="form-group">
                   <label id="lblotp">Masukkan OTP anda</label>
                   <input type="hidden" required name="token"  id="token">
-                  <input type="text" required name="otp" onkeyup="verif()" class="form-control" id="otp" maxlength="5">
+                  <div class="row">
+                    <div class="col-6">
+                      <input type="text" required name="otp" class="form-control" id="otp" maxlength="5">    
+                    </div>
+                    <div class="col-6">
+                      <a onclick="verif()" class="btn btn-sm btn-success" id="btnotp">
+                        <i class="fas fa-paper-plane"></i> Kirim
+                      </a>
+                    </div>
+                  </div>
+                  
                 </div>
               </form>
             </div>
@@ -199,87 +209,6 @@
                   </div>
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4" >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_kesehatan()">
-                  <div class="row">
-                    <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Kesehatan</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_sosial()">
-                  <div class="row">
-                    <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Sosial</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_keuangan()">
-                  <div class="row">
-                    <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Keuangan</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_pendidikan()">
-                  <div class="row">
-                    <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Pendidikan</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_industri()">
-                  <div class="row">
-                    <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Industri</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_dataopd()">
-                  <div class="row">
-                    <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Data OPD</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4 col-md-6 col-xl-3 pt-1 pb-4 " >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_bda()">
-                  <div class="row">
-                    <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Bengkulu Dalam Angka</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_pengaduan()">
-                  <div class="row">
-                    <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Pengaduan</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-xl-3 pt-1 pb-4 " >
-                <div class="card card-body p-0 hvs" style="border-radius:10px; background-image: url(https://img.pikbest.com/backgrounds/20200513/creative-synthesis-education-background_2755178.jpg!sw800); background-size: cover; background-repeat:no-repeat;" onclick="graf_lapgub()">
-                  <div class="row">
-                    <div class="col-12">
-                      <div align="center" style="margin:5px;font-size: 17px;">Laporan Gubernur</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
           </div>
         </div>
         
@@ -331,38 +260,55 @@ function daftar(){
 
 function verif(){
   otp=$('#otp').val();
-  console.log(otp.length);
-  $('#lblotp').html('Masukkan OTP anda   <i class="fas fa-spinner fa-spin"></i>');
-  if(otp.length==5)
-  {
-    verif=$('#verif').serialize();
+  $('#btnotp').html('<i class="fas fa-spinner fa-spin"></i>');
+  fverif=$('#verif').serialize();
     $.ajax({
       url   : 'app/jamaah/fx?otp',
       method: 'POST',
-      data  : verif,
+      data  : fverif,
       success : function(data){
         m=JSON.parse(data);
-        console.log(data);
+        //console.log(data);
         if(m.kode==1)
         {
           toastr.success(m.konten);
           $('.nav-tabs a[href="#masuk"]').tab('show');
           $('#lblotp').html('Masukkan OTP anda   <i class="text-success fas fa-check-circle"></i>');
+          $('#btnotp').html('<i class="fas fa-paper-plane"></i> Kirim');
+          $('#verif').hide();
         }
         else
         {
           toastr.error(m.konten);
           $('#lblotp').html('Masukkan OTP anda   <i class="text-danger fas fa-times-circle"></i>');
+          $('#btnotp').html('<i class="fas fa-paper-plane"></i> Kirim');
         }
       } 
     })
-  }
-  else
-  {
-    $('#lblotp').html('Masukkan OTP anda   <i class="fas fa-spinner fa-spin"></i> 5 digit');
-  }
-  
+}
 
+function masuk(){
+  fm=$('#fm').serialize();
+  $('#btnotp').html('<i class="fas fa-spinner fa-spin"></i>');
+  $.ajax({
+      url   : 'app/jamaah/fx?masuk',
+      method: 'POST',
+      data  : fm,
+      success : function(data){
+        m=JSON.parse(data);
+        //console.log(data);
+        if(m.kode==1)
+        {
+          toastr.success(m.konten);
+          window.location.href='app/jamaah/';
+        }
+        else
+        {
+          toastr.error(m.konten);
+        }
+        $('#btnotp').html('<i class="fas fa-sign-in-alt"></i> Masuk');
+      } 
+    })
 }
 </script>
 <style type="text/css">
