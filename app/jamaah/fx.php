@@ -1,5 +1,10 @@
 <?php 
+if(empty($_SESSION['us']))
+{
+	header("location:../.././");
+}
 require_once "../../config/conn.php";
+
 
 if(isset($_GET['daftar']))
 {
@@ -124,4 +129,9 @@ elseif (isset($_GET['masuk'])) {
 		);
 	echo json_encode($msg);
 }
+elseif(!empty($_SESSION['us']))
+{
+	$fj=mysqli_fetch_array(mysqli_query($kon,"SELECT * from jamaah where hp='$_SESSION[us]'"));
+}
+
 ?>
