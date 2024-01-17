@@ -22,3 +22,39 @@ if(isset($_GET['profile_update']))
 	}
 	
 }
+elseif(isset($_GET['change_photo']))
+{
+	$f=$_FILES['foto'];
+	$arjs=array('jpg','jpeg','png');
+	$exnm=explode('.', $f['name']);
+	$jf=end($exnm);
+	if(in_array($jf,$arjs))
+	{
+		$upfolder="../../assets/jamaah/foto/";
+		if(move_uploaded_file($f['tmp_name'],$upfolder.$f['name']))
+		{
+			$cmd=mysqli_query($kon,"UPDATE jamaah set foto='$f[name]' where hp='$_SESSION[us]'");
+
+			if($cmd)
+			{
+				header("location:profil");
+			}
+			else
+			{
+				echo '0 '.mysqli_error($kon);
+			}
+		}
+		else
+		{
+			?>
+			<script>alert("Gagal upload foto");window.history.back();</script>
+			<?php
+		}
+	}
+	else
+	{
+		?>
+		<script>alert("Format file salah. Harus berformat jpg, jpeg, atau png");window.history.back();</script>
+		<?php
+	}
+}

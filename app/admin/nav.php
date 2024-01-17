@@ -10,7 +10,7 @@ require "fx.php";
   <link rel="apple-touch-icon" sizes="76x76" href="https://bs-travel.id/wp-content/uploads/2023/12/Logo-BST-Final.png">
   <link rel="icon" type="image/png" href="https://bs-travel.id/wp-content/uploads/2023/12/Logo-BST-Final.png">
   <title>
-    BST - JAMAAH
+    BST - ADMIN
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -48,11 +48,11 @@ require "fx.php";
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark " href="profil">
+          <a class="nav-link text-dark " href="pelanggan">
             <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fas fa-user-circle opacity-10"></i>
+              <i class="fas fa-users-cog opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Profil</span>
+            <span class="nav-link-text ms-1">Pelanggan</span>
           </a>
         </li>
         <li class="nav-item">
@@ -71,7 +71,23 @@ require "fx.php";
             <span class="nav-link-text ms-1">Pembayaran</span>
           </a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link text-dark " href="web">
+            <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fas fa-globe opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Pengaturan Website</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark " href="akun">
+            <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fas fa-user-cog opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Pengaturan Akun</span>
+          </a>
+        </li>
+
     <div class="sidenav-footer w-100 bottom-0 ">
       <div class="mx-3">
         <a class="btn btn-danger mt-4 w-100" href="keluar" type="button"><i class="fas fa-sign-out-alt"></i> Keluar</a>
