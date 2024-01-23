@@ -5,13 +5,13 @@ require_once "fx.php";
 $cari=isset($_POST['cari'])?addslashes($_POST['cari']):'';
 $urut=$_POST['urut'];
 
-$jc=mysqli_num_rows(mysqli_query($kon, "SELECT * from jamaah where nama like '%$cari%' or hp like '%$cari%' or ktpsim like '%$cari%' order by $urut asc"));
+$jc=mysqli_num_rows(mysqli_query($kon, "SELECT * from paket where nama like '%$cari%' or desk like '%$cari%' order by $urut asc"));
 ?>
 <div class="alert alert-success text-light font-weight-bold p-2 mx-2 w-75">
   Ditemukan <?=$jc;?>
 </div>
 <?php
-$csql=mysqli_query($kon,"SELECT * from jamaah where nama like '%$cari%' or hp like '%$cari%' or ktpsim like '%$cari%' order by $urut asc");
+$csql=mysqli_query($kon,"SELECT * from paket where nama like '%$cari%' or desk like '%$cari%' order by $urut asc");
 while($j=mysqli_fetch_array($csql))
 {
   ?>
@@ -23,11 +23,8 @@ while($j=mysqli_fetch_array($csql))
             <div class="dropdown">
               <a class="btn p-1 text-white font-weight-bold m-1 dropdown-toggle" role="button" id="dropmenu" data-bs-toggle="dropdown" aria-expanded="false"></a>
               <ul class="dropdown-menu" aria-labelledby="dropmenu">
-                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jpro<?=$j['idjamaah'];?>"><i class="fas fa-user"></i> <span class="text-right">Profil</span></a></li>
-                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jpkt<?=$j['idjamaah'];?>"><i class="fas fa-plane"></i> <span class="text-right">Paket dipilih</span> </a></li>
-                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jep<?=$j['idjamaah'];?>"><i class="fas fa-user-cog"></i> <span class="text-right">Edit Profil</span> </a></li>
-                <li><a class="dropdown-item text-danger" href="fx.admin?hapusplg&idplg=<?=$j['idjamaah']?>"><i class="fas fa-trash"></i> <span class="text-right">Hapus</span>
-                </a></li>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jpkt<?=$j['idjamaah'];?>"><i class="fas fa-users"></i> <span class="text-right">Peserta</span> </a></li>
+                
               </ul>
             </div>
             <div class="flex-grow-1">
@@ -37,33 +34,20 @@ while($j=mysqli_fetch_array($csql))
            
         </div>
       </div>
-      <div class="card-body p-1 mt-2">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-            <?php 
-            if($j['foto']!='')
-             {
-                ?>
-                <img src="../../assets/jamaah/foto/<?=$j['foto'];?>" class="img-thumbnail shadow-lg"  style="width:100%;height: 100px;">
-                <?php
-             }
-             else
-             {
-                ?>
-                <img src="https://img.freepik.com/premium-vector/user-customer-avatar-vector-illustration_276184-160.jpg" class="img-thumbnail shadow-lg"  style="width:100%;height: 100px;">
-                <?php
-             }
-            ?>
-          </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 col-8" align="right">
-            <small>No. KTP/SIM<br>
-            <b class=""><?=$j['ktpsim'];?></b></small><br>
-            <small>No. HP<br>
-            <b class=""><?=$j['hp'];?></b> </small>
-            
-          </div>  
-        </div>
-        
+      <div class="card-body p-1 mt-2" style="height:260px;overflow:auto">
+            <small>Program<br>
+            <b class=""><?=$j['program'];?> Hari</b> </small><br>
+            <small>Keberangkatan<br>
+            <b class=""><?=date('M Y',strtotime($j['brgkt']));?></b></small><br>
+            <small>Biaya<br>
+            <b class=""><?=number_format($j['biaya'],0,',','.');?></b> </small><br>
+            <small>Lama Perjalanan<br>
+            <b class=""><?=$j['hari'];?> Hari</b> </small><br>
+            <small>Deskripsi<br>
+            <b class=""><?=$j['desk'];?></b></small><br>
+      </div>
+      <div class="card-footer p-1">
+         <a class="btn btn-sm btn-info w-100" onclick="pilihpaket('<?=$j['idpaket'];?>'">Pilih Paket</a>
       </div>
     </div>
   </div>
