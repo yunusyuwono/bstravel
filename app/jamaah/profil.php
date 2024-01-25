@@ -12,7 +12,8 @@ include "nav.php";
             </div>
             <div class="col-8" align="right">
                <a class="btn btn-light p-1" data-bs-toggle="modal" data-bs-target="#mfeprofil"><i class="fas fa-edit"></i> Edit Profil</a> 
-               <a class="btn btn-light p-1 mx-1" data-bs-toggle="modal" data-bs-target="#mfefoto"><i class="fas fa-camera "></i> Pas Foto</a> 
+               <a class="btn btn-light p-1 mx-1" data-bs-toggle="modal" data-bs-target="#mfefoto"><i class="fas fa-camera "></i> Pas Foto</a>
+               <a class="btn btn-light p-1 mx-1" data-bs-toggle="modal" data-bs-target="#mfesyarat"><i class="fa fa-id-card" aria-hidden="true"></i> Persyaratan</a>  
             </div>
           </div>
         </div>
@@ -277,6 +278,49 @@ include "nav.php";
 	          </div>
 	          <div class="form-group mt-2">
 	            <button id="upfoto" name="upfoto" class="btn btn-sm p-2 btn-info w-100"><i class="fas fa-paper-plane"></i> Simpan</a>
+	          </div>
+         </form>
+      </div>
+      </div>
+   </div>
+</div>
+
+<div class="modal fade" id="mfesyarat">
+  <div class="modal-dialog modal-md modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient-info text-white font-weight-bold p-1">
+        <div class="col-11">Persyaratan</div>
+        <div class="col-1" align="right">
+          <a data-bs-dismiss="modal" class="btn btn-dark btn-sm p-2 m-1"><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <div class="modal-body p-1">
+         <form action="fx.jamaah.php?syarat" method="post" enctype="multipart/form-data">
+         	<?php 
+            $isyarat=array(
+               array('label'=>'Buku Nikah','nmid'=>'bukunikah'),
+               array('label'=>'KTP','nmid'=>'ktp'),
+               array('label'=>'Kartu Keluarga','nmid'=>'kk'),
+               array('label'=>'Akta/Ijazah','nmid'=>'aktaijazah'),
+               array('label'=>'BPJS','nmid'=>'bpjs'),
+               array('label'=>'Vaksin 1','nmid'=>'vaksin1'),
+               array('label'=>'Vaksin 2','nmid'=>'vaksin2'),
+               array('label'=>'Vaksin 3','nmid'=>'vaksin3'),
+               array('label'=>'Paspor','nmid'=>'paspor')
+            );
+            
+            for($i=0;$i<count($isyarat);$i++){
+               ?>
+               <div class="input-group input-group-outline my-3">
+                  <label><?=$isyarat[$i]['label'];?></label>
+                  <input type="file" style="text-align:right" id="<?=$isyarat[$i]['nmid'];?>" name="<?=$isyarat[$i]['nmid'];?>" class="form-control w-100">
+               </div>
+               <?php
+            }
+            ?>
+            
+	          <div class="form-group mt-2">
+	            <button id="upsyarat" name="upsyarat" class="btn btn-sm p-2 btn-info w-100"><i class="fas fa-paper-plane"></i> Simpan</a>
 	          </div>
          </form>
       </div>
