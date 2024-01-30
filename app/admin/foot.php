@@ -7,6 +7,9 @@
   <script src="../../material/assets/js/core/bootstrap.min.js"></script>
   <script src="../../material/assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../../material/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
   <script>
     // var win = navigator.platform.indexOf('Win') > -1;
     // if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -15,6 +18,7 @@
     //   }
     //   Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     // }
+    new DataTable('.table');
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
