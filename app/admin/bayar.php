@@ -26,7 +26,7 @@ include "nav.php";
             Rincian Pembayaran
           </div>
           <div class="col-1" align="right">
-            <a class="btn btn-dark btn-sm p-2 m-1" data-bs-dismiss="modal"><i class="fas fa-2x  fa-times"></i></a>
+            <a class="btn btn-dark btn-sm p-2 m-1" data-bs-dismiss="modal" onclick="byrdata();"><i class="fas fa-2x  fa-times"></i></a>
           </div>
         </div>
          <div class="modal-body p-3" id="grb">
@@ -53,14 +53,27 @@ $(document).ready(function() {
    byrdata();
 })
 
-function grbdata(idjampaket,idjamaah){
+function grbdata(idjampaket){
+   //console.log(idjampaket+' '+idjamaah);
    $.ajax({
     url   : 'bayar.data.rincian.php',
     method: 'post',
-    data  : {idjampaket:idjampaket,idjamaah:idjamaah},
+    data  : {idjampaket:idjampaket},
     success : function(data){
       $('#grb').html(data);
     }
   })  
+}
+
+function valnow(idbayar,idjampaket){
+   $.ajax({
+      url   : 'bayar.valid.php',
+      method : 'post',
+      data  : {idbayar:idbayar},
+      success : function(data){
+         alert('Pembayaran berhasil divalidasi');
+         grbdata(idbayar,idjampaket);
+      }
+   })
 }
 </script>
