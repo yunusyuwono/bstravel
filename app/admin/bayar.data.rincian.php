@@ -9,7 +9,7 @@ include "fx.admin.php";
 	while($s=mysqli_fetch_array($sb))
 	{
 		?>
-		<div class="col-lg-6 col-md-6">
+		<div class="col-lg-6 col-md-6 mb-2">
 			<div class="card card-body p-1">
 				<b>Bayar ke-<?=$s['bayarke'];?></b>
 				<small><?=$s['entri'];?></small> 

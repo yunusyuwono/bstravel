@@ -1,8 +1,8 @@
 <?php 
 session_start();
-if(empty($_SESSION['us']))
+if(empty($_SESSION['adm']))
 {
-  header("location:../.././");
+  header("location:login");
 }
 require "fx.php";
 ?>
@@ -79,11 +79,27 @@ require "fx.php";
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link text-dark " href="mitra">
+            <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fas fa-user-secret opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Mitra</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link text-dark " href="web">
             <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
               <i class="fas fa-globe opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Pengaturan Website</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark " href="web">
+            <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fas fa-donate opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Keuangan</span>
           </a>
         </li>
         <li class="nav-item">

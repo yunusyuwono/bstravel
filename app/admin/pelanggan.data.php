@@ -16,7 +16,7 @@ while($j=mysqli_fetch_array($csql))
 {
   ?>
   <div class="col-lg-4 col-md-4 col-sm-12">
-    <div class="card my-4 shadow-lg p-1">
+    <div class="card my-4 shadow-sm p-1">
       <div class="card-header p-0 position-relative mt-n mx-1 z-index-2">
         <div class="bg-gradient-info shadow-primary border-radius-lg pt-2 pb-1">
           <div class="d-flex">
@@ -90,11 +90,12 @@ while($j=mysqli_fetch_array($csql))
     <div class="modal-dialog modal-lg modal-scrollable">
       <div class="modal-content">
         <div class="modal-header bg-gradient-info text-white font-weight-bold p-2">
-          <div class="col-11">
+          <div class="col-9">
             Profil <?=$j['nama'];?>
           </div>
-          <div class="col-1" align="right">
-            <a class="btn btn-dark btn-sm p-2 m-1" data-bs-dismiss="modal"><i class="fas fa-2x  fa-times"></i></a>
+          <div class="col-3" align="right">
+          <a class="btn btn-light btn-sm p-2 m-1" href="pelanggan.profil?idj=<?=$j['idjamaah'];?>">Detail Profil</a>  
+          <a class="btn btn-dark btn-sm p-2 m-1" data-bs-dismiss="modal"><i class="fas fa-2x  fa-times"></i></a>
           </div>
         </div>
         <div class="modal-body p-3">

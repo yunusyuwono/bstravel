@@ -72,6 +72,10 @@ include "nav.php";
             <input type="number" style="text-align:right" id="biaya" name="biaya" class="form-control w-100" >
           </div>
           <div class="input-group input-group-outline my-3">
+            <label class="form-label">Kuota</label>
+            <input type="number" style="text-align:right" id="kuota" name="kuota" class="form-control w-100" >
+          </div>
+          <div class="input-group input-group-outline my-3">
             <label class="form-label">Deskripsi</label>
             <input type="text" style="text-align:right" id="desk" name="desk" class="form-control w-100" >
           </div>

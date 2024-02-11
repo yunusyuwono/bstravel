@@ -33,7 +33,7 @@ include "fx.admin.php";
          <td align="center"><?=$no;?></td>
          <td>
             <div class="btn-group">
-               <a onclick="tambah_bayar('<?=$m['idjampaket'];?>','<?=$m['idjamaah'];?>')" class="btn btn-primary" title="Tambah Pembayaran" data-bs-toggle="modal" data-bs-target="#modtb"><i class="fas fa-plus"></i></a>
+               <a href="bayar.paket?idpaket=<?=$m['idjampaket'];?>&idjamaah=<?=$m['idjamaah'];?>" class="btn btn-primary" title="Tambah Pembayaran" ><i class="fas fa-plus"></i></a>
 
                <a onclick="grbdata('<?=$m['idjampaket'];?>','<?=$m['idjamaah'];?>')" class="btn btn-info" title="Rincian Pembayaran" data-bs-toggle="modal" data-bs-target="#modrb"><i class="fas fa-list"></i></a>
 

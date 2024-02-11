@@ -110,6 +110,25 @@ include "nav.php";
               <option value="Perempuan" > Perempuan</option>  
             </select>
           </div>
+          <div class="input-group input-group-outline my-3">
+            <label class="form-label">Nama Orang Tua * <small>Format : Nama Ayah / Nama Ibu</small></label>
+            <input type="text" style="text-align:right" id="ortu" name="ortu" class="form-control" >
+          </div>
+          <div class="input-group input-group-outline my-3">
+            <label>Mitra</label>
+            <select name="kodeaff" id="kodeaff" class="form-control w-100">
+              <option value="-"> Tanpa Mitra</option>
+              <?php 
+              $mt=mysqli_query($kon,"SELECT * from admuser where lvl='mitra' and status='aktif'");
+              while($m=mysqli_fetch_array($mt))
+              {
+                ?>
+                <option value="<?=$m['aff'];?>"><?=$m['nama'];?> | <?=$m['aff'];?></option>
+                <?php
+              }
+              ?>
+            </select>
+          </div>
           <div class="form-group mt-2">
             <a id="updp" onclick="plg_simpan()" class="btn btn-sm p-2 btn-info w-100"><i class="fas fa-paper-plane"></i> Simpan</a>
           </div>

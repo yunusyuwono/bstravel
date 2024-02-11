@@ -14,6 +14,7 @@ $jc=mysqli_num_rows(mysqli_query($kon, "SELECT * from paket where nama like '%$c
 $csql=mysqli_query($kon,"SELECT * from paket where nama like '%$cari%' or desk like '%$cari%' order by $urut asc");
 while($j=mysqli_fetch_array($csql))
 {
+   $jp=mysqli_num_rows(mysqli_query($kon,"SELECT * from jampaket where idpaket='$j[idpaket]'"));
   ?>
   <div class="col-lg-4 col-md-4 col-sm-12">
     <div class="card my-4 shadow-lg p-1">
@@ -23,9 +24,9 @@ while($j=mysqli_fetch_array($csql))
             <div class="dropdown">
               <a class="btn p-1 text-white font-weight-bold m-1 dropdown-toggle" role="button" id="dropmenu" data-bs-toggle="dropdown" aria-expanded="false"></a>
               <ul class="dropdown-menu" aria-labelledby="dropmenu">
-                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jpkt<?=$j['idjamaah'];?>"><i class="fas fa-users"></i> <span class="text-right">Peserta</span> </a></li>
-                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jep<?=$j['idjamaah'];?>"><i class="fas fa-user-cog"></i> <span class="text-right">Edit Profil</span> </a></li>
-                <li><a class="dropdown-item text-danger" href="fx.admin?hapusplg&idplg=<?=$j['idjamaah']?>"><i class="fas fa-trash"></i> <span class="text-right">Hapus</span>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jpst<?=$j['idpaket'];?>"><i class="fas fa-users"></i> <span class="text-right">Peserta</span> </a></li>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jep<?=$j['idpaket'];?>"><i class="fas fa-user-cog"></i> <span class="text-right">Edit Paket</span> </a></li>
+                <li><a class="dropdown-item text-danger" href="fx.admin?hapusplg&idplg=<?=$j['idpaket']?>"><i class="fas fa-trash"></i> <span class="text-right">Hapus</span>
                 </a></li>
               </ul>
             </div>
@@ -45,6 +46,8 @@ while($j=mysqli_fetch_array($csql))
             <b class=""><?=number_format($j['biaya'],0,',','.');?></b> </small><br>
             <small>Lama Perjalanan<br>
             <b class=""><?=$j['hari'];?> Hari</b> </small><br>
+            <small>Kuota<br>
+            <b class=""><?=number_format($jp,0,',','.').'/'.number_format($j['kuota'],0,',','.');?></b> </small><br>
             <small>Deskripsi<br>
             <b class=""><?=$j['desk'];?></b></small><br>
         
@@ -52,12 +55,12 @@ while($j=mysqli_fetch_array($csql))
     </div>
   </div>
 
-  <div class="modal fade" id="jpkt<?=$j['idjamaah'];?>">
+  <div class="modal fade" id="jpst<?=$j['idpaket'];?>">
     <div class="modal-dialog modal-lg modal-scrollable">
       <div class="modal-content">
         <div class="modal-header bg-gradient-info text-white font-weight-bold p-2">
           <div class="col-11">
-            Paket dipilih oleh <?=$j['nama'];?>
+            Rombongan Peserta <?=$j['nama'];?>
           </div>
           <div class="col-1" align="right">
             <a class="btn btn-dark btn-sm p-2 m-1" data-bs-dismiss="modal"><i class="fas fa-2x  fa-times"></i></a>
@@ -70,7 +73,7 @@ while($j=mysqli_fetch_array($csql))
     </div>
   </div>
 
-  <div class="modal fade" id="jpro<?=$j['idjamaah'];?>">
+  <div class="modal fade" id="jep<?=$j['idpaket'];?>">
     <div class="modal-dialog modal-lg modal-scrollable">
       <div class="modal-content">
         <div class="modal-header bg-gradient-info text-white font-weight-bold p-2">

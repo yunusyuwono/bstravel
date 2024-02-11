@@ -9,8 +9,8 @@ include "nav.php";
           <h6 class="text-white text-capitalize ps-3">Pembayaran</h6>
         </div>
       </div>
-      <div class="card-body px-3 pb-2" style="height:80vh;overflow: auto;">
-      	<div class="table-respopnsive" id="bayardata">
+      <div class="card-body px-1 pb-2" style="height:80vh;overflow: auto;">
+      	<div class="table-responsive" id="bayardata">
           
         </div>
       </div>
