@@ -61,7 +61,7 @@ $c=mysqli_num_rows(mysqli_query($kon,"SELECT * FROM bayar where idjampaket='$p[i
                                 </div>
                                 <div class="form-group">
                                     <label>Bukti Pembayaran</label>
-                                    <input type="file" name="bukti" id="bukti" accept="image/*" class="form-control" placeholder="Bukti Pembayaran" required style="border:1px solid gray">
+                                    <input type="file" name="bukti" id="bukti" accept="image/*" class="form-control" placeholder="Bukti Pembayaran" style="border:1px solid gray">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Rekening Tujuan</label>
@@ -91,11 +91,24 @@ $c=mysqli_num_rows(mysqli_query($kon,"SELECT * FROM bayar where idjampaket='$p[i
                             <div class="list-group-item">
                                 <div class="row">
                                     <div class="col-8">
-                                        Pembayaran ke-<?=$a['bayarke'].' .'.number_format($a['nominal']);?><br>
+                                        Pembayaran ke-<?=$a['bayarke'].'. '.number_format($a['nominal']);?><br>
                                         <small><?=$a['entri'];?> | Status : <?=$a['status'];?></small>
                                     </div>
                                     <div class="col-4">
-                                        <a class="btn btn-sm btn-success w-100" href="../../assets/jamaah/bb/<?=$a['bukti'];?>" target="_blank">Bukti</a>
+                                        <?php 
+                                        if($a['rektu']!='Tunai')
+                                        {
+                                            ?>
+                                            <a class="btn btn-sm btn-success w-100" href="../../assets/jamaah/bb/<?=$a['bukti'];?>" target="_blank">Bukti</a>
+                                            <?php
+                                        }
+                                        else
+                                        {
+                                            ?>
+                                            <a class="btn btn-sm btn-info w-100">Tunai</a>
+                                            <?php
+                                        }
+                                        ?>                                        
                                     </div>
                                 </div>
                                 

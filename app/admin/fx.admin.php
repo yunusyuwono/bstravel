@@ -174,14 +174,40 @@ elseif(isset($_GET['uplbukti']))
 	$bayarke=$_POST['bayarke'];
 	$status = 'Terkirim';
 	$idpaket=$_POST['idpaket'];
-	if(move_uploaded_file($bukti['tmp_name'],'../../assets/jamaah/bb/'.$bukti['name']))
+	if($bukti['name']!='')
 	{
-		$cmd=mysqli_query($kon,"INSERT into bayar (idjampaket,bayarke,nominal,bukti,rektu,status) values ('$idjampaket','$bayarke','$nominal','$bukti[name]','$rektu','$status')");
+		if(move_uploaded_file($bukti['tmp_name'],'../../assets/jamaah/bb/'.$bukti['name']))
+		{
+			$cmd=mysqli_query($kon,"INSERT into bayar (idjampaket,bayarke,nominal,bukti,rektu,status) values ('$idjampaket','$bayarke','$nominal','$bukti[name]','$rektu','$status')");
 
+			if($cmd)
+			{
+				?>
+				<script>alert("Bukti pembayaran berhasil dikirimkan");window.location.href='bayar.paket?idpaket=<?=$idpaket;?>&idjamaah=<?=$idjamaah;?>';</script>
+				<?php
+			}
+			else
+			{
+				?>
+				<script>alert("<?=mysqli_error($kon);?>");window.history.back();</script>
+				<?php
+			}
+		}
+		else
+		{
+			?>
+			<script>alert("Gagal upload foto");window.history.back();</script>
+			<?php
+		}		
+	}
+	else
+	{
+		$status = 'Valid';
+		$cmd=mysqli_query($kon,"INSERT into bayar (idjampaket,bayarke,nominal,bukti,rektu,status) values ('$idjampaket','$bayarke','$nominal','','$rektu','$status')");
 		if($cmd)
 		{
 			?>
-			<script>alert("Bukti pembayaran berhasil dikirimkan");window.location.href='bayar.paket?idpaket=<?=$idpaket;?>&idjamaah=<?=$idjamaah;?>';</script>
+			<script>alert("Pembayaran Tunai berhasil");window.location.href='bayar.paket?idpaket=<?=$idpaket;?>&idjamaah=<?=$idjamaah;?>';</script>
 			<?php
 		}
 		else
@@ -190,12 +216,6 @@ elseif(isset($_GET['uplbukti']))
 			<script>alert("<?=mysqli_error($kon);?>");window.history.back();</script>
 			<?php
 		}
-	}
-	else
-	{
-		?>
-		<script>alert("Gagal upload foto");window.history.back();</script>
-		<?php
 	}
 }
 elseif(isset($_GET['paspor_update']))

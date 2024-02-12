@@ -9,9 +9,9 @@ $aff=$_POST['aff'];
     {
         ?>
         <div class="list-group-item">
-            <div class="row p-0">
-                <div class="col-3"><small><?=$p['entri'];?></small></div>
-                <div class="col-9"><?=$p['nama'];?><br><small><?=$p['ktpsim'];?> / <?=$p['hp'];?></small></div>
+            <div class="row">
+                <div class="col-3 p-1"><small><?=$p['entri'];?></small></div>
+                <div class="col-9 p-1"><?=$p['nama'];?><br><small><?=$p['ktpsim'];?> / <?=$p['hp'];?></small></div>
             </div>
         </div>
         <?php
