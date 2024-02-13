@@ -25,8 +25,8 @@ include "fx.admin.php";
          <td align="center"><?=$no;?></td>
          <td>
             <div class="btn-group">
-               <a onclick="edit_mitra('<?=$m['idadmuser'];?>')" class="btn btn-primary" title="Edit Mitra" data-bs-toggle="modal" data-bs-target="#modtb"><i class="fas fa-edit"></i></a>
-               <a onclick="hapus_mitra('<?=$m['idadmuser'];?>')" class="btn btn-danger" title="Hapus Mitra"><i class="fas fa-trash"></i></a>
+               <a onclick="edit_mitra('<?=$m['idadmus'];?>')" class="btn btn-primary" title="Edit Mitra" data-bs-toggle="modal" data-bs-target="#modtb"><i class="fas fa-edit"></i></a>
+               <a onclick="hapus_mitra('<?=$m['idadmus'];?>')" class="btn btn-danger" title="Hapus Mitra"><i class="fas fa-trash"></i></a>
             </div>
          </td>
          <td><?=$m['nama'];?></td>

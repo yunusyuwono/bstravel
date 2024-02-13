@@ -1,5 +1,6 @@
 <?php 
 include "fx.admin.php";
+$pkt=$_POST['idpaket'];
 ?>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 <table class="table table-striped table-hover table-bordered table-condensed table-sm" style="width:100%">
@@ -20,7 +21,7 @@ include "fx.admin.php";
   <tbody>
   <?php 
   $no=1;
-  $jmp=mysqli_query($kon,"SELECT * from jampaket order by tgldaftar desc");
+  $jmp=mysqli_query($kon,"SELECT * from jampaket where idpaket='$pkt'");
   while($m=mysqli_fetch_array($jmp))
   {
    $j=mysqli_fetch_array(mysqli_query($kon,"SELECT * from jamaah where hp='$m[idjamaah]'"));
@@ -33,10 +34,7 @@ include "fx.admin.php";
          <td align="center"><?=$no;?></td>
          <td>
             <div class="btn-group">
-               <a href="bayar.paket?idpaket=<?=$m['idpaket'];?>&idjamaah=<?=$m['idjamaah'];?>" class="btn btn-primary" title="Tambah Pembayaran" ><i class="fas fa-plus"></i></a>
-
-               <a onclick="grbdata('<?=$m['idjampaket'];?>','<?=$m['idjamaah'];?>')" class="btn btn-info" title="Rincian Pembayaran" data-bs-toggle="modal" data-bs-target="#modrb"><i class="fas fa-list"></i></a>
-
+               <a onclick="hapuspeserta('<?=$m['idjampaket'];?>','<?=$m['idjamaah'];?>')" class="btn btn-danger" title="Hapus dari rombongan"><i class="fas fa-trash"></i></a>
             </div>
          </td>
          <td><?=$j['nama'];?><br><small><?=$j['ktpsim'];?></small></td>

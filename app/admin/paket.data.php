@@ -17,16 +17,16 @@ while($j=mysqli_fetch_array($csql))
    $jp=mysqli_num_rows(mysqli_query($kon,"SELECT * from jampaket where idpaket='$j[idpaket]'"));
   ?>
   <div class="col-lg-4 col-md-4 col-sm-12">
-    <div class="card my-4 shadow-lg p-1">
+    <div class="card my-4 p-1">
       <div class="card-header p-0 position-relative mt-n mx-1 z-index-2">
         <div class="bg-gradient-info shadow-primary border-radius-lg pt-2 pb-1">
           <div class="d-flex">
             <div class="dropdown">
               <a class="btn p-1 text-white font-weight-bold m-1 dropdown-toggle" role="button" id="dropmenu" data-bs-toggle="dropdown" aria-expanded="false"></a>
               <ul class="dropdown-menu" aria-labelledby="dropmenu">
-                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jpst<?=$j['idpaket'];?>"><i class="fas fa-users"></i> <span class="text-right">Peserta</span> </a></li>
+                <li><a class="dropdown-item" href="paket.jamaah?idpaket=<?=$j['idpaket'];?>"><i class="fas fa-users"></i> <span class="text-right">Peserta</span> </a></li>
                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#jep<?=$j['idpaket'];?>"><i class="fas fa-user-cog"></i> <span class="text-right">Edit Paket</span> </a></li>
-                <li><a class="dropdown-item text-danger" href="fx.admin?hapusplg&idplg=<?=$j['idpaket']?>"><i class="fas fa-trash"></i> <span class="text-right">Hapus</span>
+                <li><a class="dropdown-item text-danger" onclick="return confirm('Apakah anda ingin menghapus paket ini ?')" href="fx.admin?hapuspaket&idpaket=<?=$j['idpaket']?>"><i class="fas fa-trash"></i> <span class="text-right">Hapus</span>
                 </a></li>
               </ul>
             </div>
@@ -51,24 +51,6 @@ while($j=mysqli_fetch_array($csql))
             <small>Deskripsi<br>
             <b class=""><?=$j['desk'];?></b></small><br>
         
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="jpst<?=$j['idpaket'];?>">
-    <div class="modal-dialog modal-lg modal-scrollable">
-      <div class="modal-content">
-        <div class="modal-header bg-gradient-info text-white font-weight-bold p-2">
-          <div class="col-11">
-            Rombongan Peserta <?=$j['nama'];?>
-          </div>
-          <div class="col-1" align="right">
-            <a class="btn btn-dark btn-sm p-2 m-1" data-bs-dismiss="modal"><i class="fas fa-2x  fa-times"></i></a>
-          </div>
-        </div>
-        <div class="modal-body p-3">
-
-        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,50 @@
+<table class="table" border="1" style="width:100%">
+  <thead>
+    <tr>
+        <td colspan="5">Umroh Bersama BST Bengkulu 10 Hari</td>
+    </tr>
+    <tr>
+        <td colspan="5">Keberangkatan : 2024-03</td>
+    </tr>
+    <tr>
+        <th style="background-color: #ddd;" rowspan="2">No.</th>
+        <th style="background-color: #ddd;" rowspan="2">Name</th>
+        <th style="background-color: #ddd;" rowspan="2">Rekanan</th>
+        <th style="background-color: #ddd;" rowspan="2">Gen</th>
+        <th style="background-color: #ddd;" colspan="3">Detail of Birth</th>
+        <th style="background-color: #ddd;" colspan="4">Detail of Passport</th>
+        <th style="background-color: #ddd;" rowspan="2">NIK</th>
+        <th style="background-color: #ddd;" rowspan="2">Relation</th>
+    </tr>
+    <tr>
+        <th  style="background-color: #ddd;">AGE</th>
+        <th  style="background-color: #ddd;">Place of Birth</th>
+        <th  style="background-color: #ddd;">Date of Birth</th>
+        <th  style="background-color: #ddd;">Issuing Office</th>
+        <th  style="background-color: #ddd;">No. Passport</th>
+        <th  style="background-color: #ddd;">Date of Issue</th>
+        <th  style="background-color: #ddd;">Date of Expiry</th>
+    </tr>
+  </thead>
+  <tbody>
+      <td align="center" style="text-transform:uppercase">1</td>
+    <td align="center" style="text-transform:uppercase">asdfghijklaswaswaddfee A K</td>
+    <td align="center" style="text-transform:uppercase">CAB BENGKULU</td>
+    <td align="center" style="text-transform:uppercase">MR</td>
+    <td align="center" style="text-transform:uppercase">
+    29    </td>
+    <td align="center" style="text-transform:uppercase">
+      Bengkulu    </td>
+    <td align="center" style="text-transform:uppercase">
+      07 November 1994    </td>
+    
+    
+    <td align="center" style="text-transform:uppercase">BENGKULU</td>
+    <td align="center" style="text-transform:uppercase">A1234577</td>
+    <td align="center" style="text-transform:uppercase">2021-07-08</td>
+    <td align="center" style="text-transform:uppercase">2031-07-08</td>
+    <td align="center" style="text-transform:uppercase">1709030210940001</td>
+    <td align="center" style="text-transform:uppercase"></td>
+       
+  </tbody>
+</table>

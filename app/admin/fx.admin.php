@@ -331,3 +331,45 @@ elseif(isset($_GET['syarat']))
 		// }
 	}
 }
+elseif(isset($_GET['tambah_peserta']))
+{
+	$idpaket=$_POST['idpaket'];
+	$idjamaah=$_POST['idjamaah'];
+	$tgldftr=date('Y-m-d');
+	$status='Terdaftar';
+
+	$js=0;
+	$cs=0;
+	for($i=0;$i<count($idjamaah);$i++)
+	{
+		$cek=mysqli_num_rows(mysqli_query($kon,"SELECT * FROM jampaket where idpaket='$idpaket' and idjamaah='$idjamaah[$i]'"));
+		if($cek==0)
+		{
+			$cmd=mysqli_query($kon,"INSERT INTO jampaket (idjamaah,idpaket,tgldaftar,status) values('$idjamaah[$i]','$idpaket','$tgldftr','$status')");
+			if($cmd)
+			{
+				$js=$js+1;
+			}
+		}
+		else
+		{
+			$cs=$cs+1;
+		}
+	}
+
+	echo 'Berhasil menambahkan '.$js.' peserta';
+}
+elseif(isset($_GET['hapus_peserta']))
+{
+	$idjampaket=$_POST['idjampaket'];
+	$idjamaah=$_POST['idjamaah'];
+	$cmd=mysqli_query($kon,"DELETE from jampaket where idjampaket='$idjampaket' and idjamaah='$idjamaah'");
+	if($cmd)
+	{
+		echo 'Berhasil menghapus peserta dari rombongan';
+	}
+	else
+	{
+		echo mysqli_error($kon);
+	}
+}
