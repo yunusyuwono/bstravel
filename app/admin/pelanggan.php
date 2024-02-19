@@ -129,6 +129,10 @@ include "nav.php";
               ?>
             </select>
           </div>
+          <div class="input-group input-group-outline my-3">
+            <label class="form-label">Relasi</label>
+            <input type="text" style="text-align:right" id="relasi" name="relasi" class="form-control"  >
+          </div>
           <div class="form-group mt-2">
             <a id="updp" onclick="plg_simpan()" class="btn btn-sm p-2 btn-info w-100"><i class="fas fa-paper-plane"></i> Simpan</a>
           </div>

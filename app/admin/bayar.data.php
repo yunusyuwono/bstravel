@@ -47,7 +47,14 @@ include "fx.admin.php";
          <td align="right"><?=number_format(($p['biaya']-$b['ttlbayar']),0,',','.');?></td>
          <td align="center"><?=$bt;?></td>
          <td align="center"><?=$bv;?></td>
-         <td align="center"></td>
+         <?php 
+         $sel=$p['biaya']-$b['ttlbayar'];
+         if($sel==0)
+         {
+            $stb='Lunas';
+         }
+         ?>
+         <td align="center"><?=isset($stb)?$stb:'Belum Lunas';?></td>
          
       </tr>
    <?php

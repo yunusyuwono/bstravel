@@ -14,7 +14,7 @@ if(isset($_GET['tambahplg']))
 	$cekcred=mysqli_num_rows(mysqli_query($kon,"SELECT * from jamaah where hp='$p[hp]' or email='$p[email]' or ktpsim='$p[ktpsim]'"));
 	if($cekcred==0)
 	{
-		$cmd=mysqli_query($kon,"INSERT into jamaah (nama,jk,tmplahir,tgllahir,ktpsim,pekerjaan,alamat,kabkota,pos,hp,email,ahliwaris,hubwaris,perlengkapan,ortu,kodeaff) values ('$p[nama]','$p[jk]','$p[tmplahir]','$p[tgllahir]','$p[ktpsim]','$p[pekerjaan]','$p[alamat]','$p[kabkota]','$p[pos]','$p[hp]','$p[email]','$p[ahliwaris]','$p[hubwaris]','$p[perlengkapan]','$p[ortu]','$p[kodeaff]')");
+		$cmd=mysqli_query($kon,"INSERT into jamaah (nama,jk,tmplahir,tgllahir,ktpsim,pekerjaan,alamat,kabkota,pos,hp,email,ahliwaris,hubwaris,perlengkapan,ortu,kodeaff,relasi) values ('$p[nama]','$p[jk]','$p[tmplahir]','$p[tgllahir]','$p[ktpsim]','$p[pekerjaan]','$p[alamat]','$p[kabkota]','$p[pos]','$p[hp]','$p[email]','$p[ahliwaris]','$p[hubwaris]','$p[perlengkapan]','$p[ortu]','$p[kodeaff]','$p[relasi]')");
 		//$cmd=mysqli_query($kon,"UPDATE jamaah set nama='$p[nama]',jk='$p[jk]',tmplahir='$p[tmplahir]',tgllahir='$p[tgllahir]',ktpsim='$p[ktpsim]',pekerjaan='$p[pekerjaan]',alamat='$p[alamat]',kabkota='$p[kabkota]',pos='$p[pos]',hp='$p[hp]',email='$p[email]',ahliwaris='$p[ahliwaris]',hubwaris='$p[hubwaris]',perlengkapan='$p[perlengkapan]' where hp='$_SESSION[us]'");
 		if($cmd)
 		{
@@ -41,7 +41,7 @@ elseif(isset($_GET['profile_update']))
 		$p[$k[$a]]=$ask;
 	}
 
-	$cmd=mysqli_query($kon,"UPDATE jamaah set nama='$p[nama]',jk='$p[jk]',tmplahir='$p[tmplahir]',tgllahir='$p[tgllahir]',ktpsim='$p[ktpsim]',pekerjaan='$p[pekerjaan]',alamat='$p[alamat]',kabkota='$p[kabkota]',pos='$p[pos]',hp='$p[hp]',email='$p[email]',ahliwaris='$p[ahliwaris]',hubwaris='$p[hubwaris]',perlengkapan='$p[perlengkapan]', ortu='$p[ortu]', kodeaff='$p[kodeaff]' where idjamaah='$p[idj]'");
+	$cmd=mysqli_query($kon,"UPDATE jamaah set nama='$p[nama]',jk='$p[jk]',tmplahir='$p[tmplahir]',tgllahir='$p[tgllahir]',ktpsim='$p[ktpsim]',pekerjaan='$p[pekerjaan]',alamat='$p[alamat]',kabkota='$p[kabkota]',pos='$p[pos]',hp='$p[hp]',email='$p[email]',ahliwaris='$p[ahliwaris]',hubwaris='$p[hubwaris]',perlengkapan='$p[perlengkapan]', ortu='$p[ortu]', kodeaff='$p[kodeaff]', relasi='$p[relasi]' where idjamaah='$p[idj]'");
 	if($cmd)
 	{
 		echo '1';

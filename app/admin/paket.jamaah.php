@@ -18,6 +18,7 @@ $p=mysqli_fetch_array(mysqli_query($kon,"SELECT * from paket where idpaket='$pkt
             </div>
             <div class="col-4" align="right">
                <a class="btn btn-light p-1 m-2" data-bs-toggle="modal" data-bs-target="#mftpeserta"><i class="fas fa-plus-circle"></i> Tambah Peserta</a> 
+               <a class="btn btn-light p-1 m-2" href="paket"><i class="fas fa-caret-left"></i> Kembali</a> 
             </div>
           </div>
         </div>
@@ -48,9 +49,13 @@ $p=mysqli_fetch_array(mysqli_query($kon,"SELECT * from paket where idpaket='$pkt
               $jam=mysqli_query($kon,"SELECT * from jamaah order by nama asc");
               while($j=mysqli_fetch_array($jam))
               {
+                $pj=mysqli_fetch_array(mysqli_query($kon,"SELECT * from jampaket where idjamaah='$j[hp]' and idpaket='$pkt'"));
+                if(!isset($pj['idjamaah']))
+                {
                 ?>
                 <option value="<?=$j['hp'];?>"><?=$j['nama'].' ('.$j['ktpsim'].')';?></option>
                 <?php
+                }
               }
               ?>
             </select>
@@ -88,8 +93,7 @@ idjamaah=$('#idjamaah').val();
    data  : {idpaket:<?=$pkt;?>,idjamaah:idjamaah},
    success : function(data){
     alert(data);
-    pktjamdata();
-    $('#mftpeserta').modal('hide');
+    window.location.reload();
     
    }
  })
@@ -102,7 +106,7 @@ function hapuspeserta(idjampaket,idjamaah){
    data  : {idjampaket:idjampaket,idjamaah:idjamaah},
    success : function(data){
     alert(data);
-    pktjamdata();    
+    window.location.reload();   
    }
  })
 }

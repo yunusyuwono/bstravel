@@ -15,7 +15,7 @@ $csql=mysqli_query($kon,"SELECT * from jamaah where nama like '%$cari%' or hp li
 while($j=mysqli_fetch_array($csql))
 {
   ?>
-  <div class="col-lg-4 col-md-4 col-sm-12">
+  <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12">
     <div class="card my-4 shadow-sm p-1">
       <div class="card-header p-0 position-relative mt-n mx-1 z-index-2">
         <div class="bg-gradient-info shadow-primary border-radius-lg pt-2 pb-1">
@@ -39,7 +39,7 @@ while($j=mysqli_fetch_array($csql))
       </div>
       <div class="card-body p-1 mt-2">
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+          <div class="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-4">
             <?php 
             if($j['foto']!='')
              {
@@ -247,7 +247,40 @@ while($j=mysqli_fetch_array($csql))
                 <div class="col-lg-8 col-md-7 col-sm-11" align="left" style="border-bottom:1px dashed #33f;padding-bottom:2px;">
                    <b><?=$j['perlengkapan'];?></b>
                 </div> 
+                <div class="col-lg-3 col-md-4 col-11">
+                     Nama Orang Tua (Ayah/Ibu)
+                  </div> 
+                  <div class="col-lg-1 col-md-1 col-1" align="right">
+                     :
+                  </div>
+                  <div class="col-lg-8 col-md-7 col-sm-11" align="left" style="border-bottom:1px dashed #33f;padding-bottom:2px;">
+                     <b><?=$j['ortu'];?></b>
+                  </div>
+                  
+                  <div class="col-lg-3 col-md-4 col-11">
+                     Mitra
+                  </div> 
+                  <div class="col-lg-1 col-md-1 col-1" align="right">
+                     :
+                  </div>
+                  <div class="col-lg-8 col-md-7 col-sm-11" align="left" style="border-bottom:1px dashed #33f;padding-bottom:2px;">
+                     <?php 
+                     $mtj=mysqli_fetch_array(mysqli_query($kon,"SELECT * FROM admuser where aff='$j[kodeaff]'"));
+                     ?>
+                     <b><?=$j['kodeaff']=='-'?'Tanpa Mitra/Kantor':$mtj['nama'];?></b>
+                  </div>
+
+                  <div class="col-lg-3 col-md-4 col-11">
+                     Relasi
+                  </div> 
+                  <div class="col-lg-1 col-md-1 col-1" align="right">
+                     :
+                  </div>
+                  <div class="col-lg-8 col-md-7 col-sm-11" align="left" style="border-bottom:1px dashed #33f;padding-bottom:2px;">
+                     <b><?=$j['relasi'];?></b>
+                  </div>
               </div>  
+
             </div>
             
          </div>

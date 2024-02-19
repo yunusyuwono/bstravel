@@ -229,6 +229,16 @@ $fj=mysqli_fetch_array(mysqli_query($kon,"SELECT * from jamaah where idjamaah='$
                      ?>
                      <b><?=$fj['kodeaff']=='-'?'Tanpa Mitra/Kantor':$mtj['nama'];?></b>
                   </div>
+
+                  <div class="col-lg-3 col-md-4 col-11">
+                     Relasi
+                  </div> 
+                  <div class="col-lg-1 col-md-1 col-1" align="right">
+                     :
+                  </div>
+                  <div class="col-lg-8 col-md-7 col-sm-11" align="left" style="border-bottom:1px dashed #33f;padding-bottom:2px;">
+                     <b><?=$fj['relasi'];?></b>
+                  </div>
                </div>
             </div>
         </div>
@@ -332,6 +342,10 @@ $fj=mysqli_fetch_array(mysqli_query($kon,"SELECT * from jamaah where idjamaah='$
               }
               ?>
             </select>
+          </div>
+          <div class="input-group input-group-outline my-3">
+            <label class="form-label">Relasi</label>
+            <input type="text" style="text-align:right" id="relasi" name="relasi" class="form-control"  value="<?=$fj['relasi'];?>">
           </div>
           <div class="form-group mt-2">
             <a id="updp" onclick="profile_update()" class="btn btn-sm p-2 btn-info w-100"><i class="fas fa-paper-plane"></i> Simpan</a>

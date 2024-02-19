@@ -13,8 +13,6 @@ $pkt=$_POST['idpaket'];
    <th>Total Dibayar</th>
    <th>Total Biaya</th>
    <th>Sisa Pembayaran</th>
-   <th>Pembayaran Terkirim</th>
-   <th>Pembayaran Divalidasi</th>
    <th>Status</th>
    
   </thead>
@@ -43,9 +41,7 @@ $pkt=$_POST['idpaket'];
          <td align="right"><?=number_format($b['ttlbayar'],0,',','.');?></td>
          <td align="right"><?=number_format($p['biaya'],0,',','.');?></td>
          <td align="right"><?=number_format(($p['biaya']-$b['ttlbayar']),0,',','.');?></td>
-         <td align="center"><?=$bt;?></td>
-         <td align="center"><?=$bv;?></td>
-         <td align="center"></td>
+         <td align="center"><?=$m['status'];?></td>
          
       </tr>
    <?php
