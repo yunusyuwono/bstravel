@@ -40,7 +40,9 @@ include "fx.admin.php";
 						elseif($s['status']=='Valid')
 						{
 							?>
-							<a class="btn btn-sm btn-outline-success" >Tervalidasi</a></div>
+							<a class="btn btn-sm btn-outline-success" >Tervalidasi</a>
+							<a class="btn btn-sm btn-primary" onclick="bayar_cetak('<?=$s['idbayar'];?>','<?=$idjampaket;?>')">
+							Cetak</a></div>
 							<?php
 						}
 						?>

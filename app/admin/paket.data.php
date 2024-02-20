@@ -41,7 +41,7 @@ while($j=mysqli_fetch_array($csql))
             <small>Program<br>
             <b class=""><?=$j['program'];?> Hari</b> </small><br>
             <small>Keberangkatan<br>
-            <b class=""><?=date('M Y',strtotime($j['brgkt']));?></b></small><br>
+            <b class=""><?=date('d M Y',strtotime($j['brgkt']));?></b></small><br>
             <small>Biaya<br>
             <b class=""><?=number_format($j['biaya'],0,',','.');?></b> </small><br>
             <small>Lama Perjalanan<br>

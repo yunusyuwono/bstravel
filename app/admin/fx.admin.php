@@ -337,7 +337,19 @@ elseif(isset($_GET['tambah_peserta']))
 	$idjamaah=$_POST['idjamaah'];
 	$tgldftr=date('Y-m-d');
 	$status='Terdaftar';
-
+	$kamar=$_POST['kamar'];
+	if($kamar=='QUAD')
+	{
+		$hrg_kamar=0;
+	}
+	elseif($kamar=='TRIPLE')
+	{
+		$hrg_kamar=1500000;
+	}
+	elseif($kamar=='DOUBLE')
+	{
+		$hrg_kamar=3000000;
+	}
 	$js=0;
 	$cs=0;
 	for($i=0;$i<count($idjamaah);$i++)
@@ -345,7 +357,7 @@ elseif(isset($_GET['tambah_peserta']))
 		$cek=mysqli_num_rows(mysqli_query($kon,"SELECT * FROM jampaket where idpaket='$idpaket' and idjamaah='$idjamaah[$i]'"));
 		if($cek==0)
 		{
-			$cmd=mysqli_query($kon,"INSERT INTO jampaket (idjamaah,idpaket,tgldaftar,status) values('$idjamaah[$i]','$idpaket','$tgldftr','$status')");
+			$cmd=mysqli_query($kon,"INSERT INTO jampaket (idjamaah,idpaket,tgldaftar,kamar,hrg_kamar,status) values('$idjamaah[$i]','$idpaket','$tgldftr','$kamar','$hrg_kamar','$status')");
 			if($cmd)
 			{
 				$js=$js+1;

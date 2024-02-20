@@ -61,7 +61,7 @@ include "nav.php";
           </div>
           <div class="input-group input-group-outline my-3">
             <label>Keberangkatan</label>
-            <input type="month" style="text-align:right" id="brgkt" name="brgkt" class="form-control w-100">
+            <input type="date" style="text-align:right" id="brgkt" name="brgkt" class="form-control w-100">
           </div>
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Hari Perjalanan</label>

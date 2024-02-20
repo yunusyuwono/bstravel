@@ -59,6 +59,15 @@ $p=mysqli_fetch_array(mysqli_query($kon,"SELECT * from paket where idpaket='$pkt
               }
               ?>
             </select>
+            
+          </div>
+          <div class="input-group input-group-outline my-3">
+            <label>Pilih Jenis Kamar</label><br>
+            <select name="kamar" id="kamar" class="js-example-basic-single form-control" style="width: 100%;">
+              <option value="QUAD">QUAD (4 orang/kamar) (Rp. 0)</option>
+              <option value="TRIPLE">TRIPLE (3 orang/kamar) (Rp. 1.500.000)</option>
+              <option value="DOUBLE">DOUBLE (2 orang/kamar) (Rp. 3.000.000)</option>
+            </select>
           </div>
           <div class="form-group mt-2">
             <a id="updp" onclick="tambah_peserta()" class="btn btn-sm p-2 btn-info w-100"><i class="fas fa-paper-plane"></i> Simpan</a>
@@ -87,10 +96,11 @@ function pktjamdata(){
 
 function tambah_peserta(){
 idjamaah=$('#idjamaah').val(); 
+kamar=$('#kamar').val(); 
  $.ajax({
    url   : 'fx.admin.php?tambah_peserta',
    method: 'POST',
-   data  : {idpaket:<?=$pkt;?>,idjamaah:idjamaah},
+   data  : {idpaket:<?=$pkt;?>,idjamaah:idjamaah,kamar:kamar},
    success : function(data){
     alert(data);
     window.location.reload();

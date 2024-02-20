@@ -76,4 +76,9 @@ function valnow(idbayar,idjampaket){
       }
    })
 }
+
+function bayar_cetak(idbayar,idjampaket){
+   window.open("bayar.cetak?idbayar="+idbayar+"&idjampaket="+idjampaket,"_blank");
+
+}
 </script>

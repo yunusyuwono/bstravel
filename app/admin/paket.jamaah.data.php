@@ -9,6 +9,7 @@ $pkt=$_POST['idpaket'];
    <th>Aksi</th>
    <th>Nama</th>
    <th>Paket</th>
+   <th>Kamar</th>
    <th>Tgl. Daftar</th>
    <th>Total Dibayar</th>
    <th>Total Biaya</th>
@@ -27,6 +28,8 @@ $pkt=$_POST['idpaket'];
    $b=mysqli_fetch_array(mysqli_query($kon,"SELECT *,sum(nominal) as ttlbayar from bayar where idjampaket='$m[idjampaket]' and status='valid'"));
    $bt=mysqli_num_rows(mysqli_query($kon,"SELECT * from bayar where idjampaket='$m[idjampaket]' and status='terkirim'"));
    $bv=mysqli_num_rows(mysqli_query($kon,"SELECT * from bayar where idjampaket='$m[idjampaket]' and status='valid'"));
+   
+
    ?>
       <tr>
          <td align="center"><?=$no;?></td>
@@ -37,10 +40,11 @@ $pkt=$_POST['idpaket'];
          </td>
          <td><?=$j['nama'];?><br><small><?=$j['ktpsim'];?></small></td>
          <td><?=$p['nama'];?></td>
+         <td><?=$m['kamar'];?><br><pre><?=number_format($m['hrg_kamar'],0,',','.');?></pre></td>
          <td align="center"><?=$m['tgldaftar'];?></td>
          <td align="right"><?=number_format($b['ttlbayar'],0,',','.');?></td>
-         <td align="right"><?=number_format($p['biaya'],0,',','.');?></td>
-         <td align="right"><?=number_format(($p['biaya']-$b['ttlbayar']),0,',','.');?></td>
+         <td align="right"><?=number_format($p['biaya']+$m['hrg_kamar'],0,',','.');?></td>
+         <td align="right"><?=number_format(($p['biaya']+$m['hrg_kamar']-$b['ttlbayar']),0,',','.');?></td>
          <td align="center"><?=$m['status'];?></td>
          
       </tr>

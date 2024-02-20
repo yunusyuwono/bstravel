@@ -8,6 +8,7 @@ include "fx.admin.php";
    <th>Aksi</th>
    <th>Nama</th>
    <th>Paket</th>
+   <th>Kamar</th>
    <th>Tgl. Daftar</th>
    <th>Total Dibayar</th>
    <th>Total Biaya</th>
@@ -41,10 +42,11 @@ include "fx.admin.php";
          </td>
          <td><?=$j['nama'];?><br><small><?=$j['ktpsim'];?></small></td>
          <td><?=$p['nama'];?></td>
+         <td><?=$m['kamar'];?><br><pre><?=number_format($m['hrg_kamar'],0,',','.');?></pre></td>
          <td align="center"><?=$m['tgldaftar'];?></td>
          <td align="right"><?=number_format($b['ttlbayar'],0,',','.');?></td>
-         <td align="right"><?=number_format($p['biaya'],0,',','.');?></td>
-         <td align="right"><?=number_format(($p['biaya']-$b['ttlbayar']),0,',','.');?></td>
+         <td align="right"><?=number_format($p['biaya']+$m['hrg_kamar'],0,',','.');?></td>
+         <td align="right"><?=number_format(($p['biaya']+$m['hrg_kamar']-$b['ttlbayar']),0,',','.');?></td>
          <td align="center"><?=$bt;?></td>
          <td align="center"><?=$bv;?></td>
          <?php 
